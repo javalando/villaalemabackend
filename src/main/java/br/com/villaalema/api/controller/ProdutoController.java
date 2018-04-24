@@ -36,7 +36,7 @@ public class ProdutoController {
 		Response<ProdutoDTO> response = new Response<ProdutoDTO>();
 		
 		//implementar
-		log.info("chegou ");
+		log.info("chegou");
 		
 		return ResponseEntity.ok(response);
 		
