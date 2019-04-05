@@ -16,33 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `itens_comanda`
+-- Table structure for table `mesa`
 --
 
-DROP TABLE IF EXISTS `itens_comanda`;
+DROP TABLE IF EXISTS `mesa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `itens_comanda` (
-  `iditens_comanda` int(11) NOT NULL AUTO_INCREMENT,
-  `id_comanda` int(11) NOT NULL,
-  `id_produto` int(11) NOT NULL,
-  `quantidate` int(11) NOT NULL,
-  `valor_item` decimal(8,2) NOT NULL,
-  PRIMARY KEY (`iditens_comanda`),
-  KEY `fk_itens_comanda_1_idx` (`id_comanda`),
-  KEY `fk_itens_comanda_2_idx` (`id_produto`),
-  CONSTRAINT `fk_comanda` FOREIGN KEY (`id_comanda`) REFERENCES `comanda` (`id_comanda`),
-  CONSTRAINT `fk_produto` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+CREATE TABLE `mesa` (
+  `idmesa` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(45) DEFAULT NULL,
+  `idtipomesa` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idmesa`),
+  KEY `fktipomesa_idx` (`idtipomesa`),
+  CONSTRAINT `fktipomesa` FOREIGN KEY (`idtipomesa`) REFERENCES `tipomesa` (`idtipomesa`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `itens_comanda`
+-- Dumping data for table `mesa`
 --
 
-LOCK TABLES `itens_comanda` WRITE;
-/*!40000 ALTER TABLE `itens_comanda` DISABLE KEYS */;
-/*!40000 ALTER TABLE `itens_comanda` ENABLE KEYS */;
+LOCK TABLES `mesa` WRITE;
+/*!40000 ALTER TABLE `mesa` DISABLE KEYS */;
+INSERT INTO `mesa` VALUES (1,'centro',1),(2,'centro',1),(3,'centro',1),(4,'centro',1),(5,'centro',1),(6,'centro',1),(7,'centro',1),(8,'fora',1),(9,'fora',1),(10,'fora',1),(11,'fora',1),(12,'direita',2),(13,'direita',2),(14,'direita',2),(15,'direita',2),(16,'esquerda',2),(17,'esquerda',2),(18,'esquerda',2),(19,'esquerda',2),(20,'esquerda',2),(21,'avulso',2),(22,'avulso',2),(23,'avulso',2),(24,'avulso',2),(25,'avulso',2),(26,'avulso',2),(27,'avulso',2),(28,'avulso',2),(29,'avulso',2),(30,'avulso',2),(31,'avulso',2),(32,'avulso',2),(33,'avulso',2),(34,'avulso',2),(35,'avulso',2),(36,'avulso',2),(37,'avulso',2),(38,'avulso',2),(39,'avulso',2),(40,'avulso',2),(41,'avulso',2),(42,'avulso',2),(43,'avulso',2),(44,'avulso',2),(45,'avulso',2),(46,'avulso',2);
+/*!40000 ALTER TABLE `mesa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-05 11:36:50
+-- Dump completed on 2019-04-05 11:36:49

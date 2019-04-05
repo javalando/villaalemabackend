@@ -16,33 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `itens_comanda`
+-- Table structure for table `tipomesa`
 --
 
-DROP TABLE IF EXISTS `itens_comanda`;
+DROP TABLE IF EXISTS `tipomesa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `itens_comanda` (
-  `iditens_comanda` int(11) NOT NULL AUTO_INCREMENT,
-  `id_comanda` int(11) NOT NULL,
-  `id_produto` int(11) NOT NULL,
-  `quantidate` int(11) NOT NULL,
-  `valor_item` decimal(8,2) NOT NULL,
-  PRIMARY KEY (`iditens_comanda`),
-  KEY `fk_itens_comanda_1_idx` (`id_comanda`),
-  KEY `fk_itens_comanda_2_idx` (`id_produto`),
-  CONSTRAINT `fk_comanda` FOREIGN KEY (`id_comanda`) REFERENCES `comanda` (`id_comanda`),
-  CONSTRAINT `fk_produto` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+CREATE TABLE `tipomesa` (
+  `idtipomesa` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idtipomesa`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `itens_comanda`
+-- Dumping data for table `tipomesa`
 --
 
-LOCK TABLES `itens_comanda` WRITE;
-/*!40000 ALTER TABLE `itens_comanda` DISABLE KEYS */;
-/*!40000 ALTER TABLE `itens_comanda` ENABLE KEYS */;
+LOCK TABLES `tipomesa` WRITE;
+/*!40000 ALTER TABLE `tipomesa` DISABLE KEYS */;
+INSERT INTO `tipomesa` VALUES (1,'quadrada'),(2,'redonda'),(3,'individual');
+/*!40000 ALTER TABLE `tipomesa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-05 11:36:50
+-- Dump completed on 2019-04-05 11:36:48
