@@ -1,0 +1,19 @@
+relacionamento OneToOne
+
+        neste mapeamento vai buscar na tabela filha com o mesmo id da tabela pai
+        
+		classe pai
+				     @OneToOne(mappedBy = "mesa", cascade = CascadeType.ALL, 
+    	      		 fetch = FetchType.LAZY, optional = true)
+    				 private Tipomesa tipomesa;
+		
+			
+		classe filha
+					 @MapsId
+   					 @OneToOne(fetch = FetchType.LAZY)
+   					 @JoinColumn(name = "idtipomesa")
+   					 private Mesa mesa;
+   					 
+  ====================================================================================================
+  
+  		
