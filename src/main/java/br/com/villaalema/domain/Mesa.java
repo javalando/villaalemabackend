@@ -24,8 +24,8 @@ public class Mesa implements Serializable {
 	@OneToMany(mappedBy="mesa", fetch = FetchType.LAZY)
 	private List<Comanda> comandas;
 
-	@OneToOne(mappedBy = "mesa", cascade = CascadeType.ALL, 
-    		 fetch = FetchType.LAZY, optional = true)
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="idtipomesa",referencedColumnName="idtipomesa")
 	private Tipomesa tipomesa;
 
 	public Mesa() {

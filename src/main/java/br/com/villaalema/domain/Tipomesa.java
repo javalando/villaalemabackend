@@ -1,8 +1,14 @@
 package br.com.villaalema.domain;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 
 /**
@@ -19,11 +25,6 @@ public class Tipomesa implements Serializable {
 	private int idtipomesa;
 
 	private String descricao;
-
-	     @MapsId
-		 @OneToOne(fetch = FetchType.LAZY)
-		 @JoinColumn(name = "idtipomesa")
-	private Mesa mesa;
 
 	public Tipomesa() {
 	}
@@ -42,15 +43,5 @@ public class Tipomesa implements Serializable {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-	public Mesa getMesa() {
-		return this.mesa;
-	}
-
-	public void setMesa(Mesa mesa) {
-		this.mesa = mesa;
-	}
-
-	
+	}	
 }
