@@ -27,5 +27,10 @@ public class MesaService {
 		return mesas;
 	}
 	
+	public Mesa salvar(Mesa mesa) {
+		Mesa mesas = repo.save(mesa);
+		
+		return mesas;
+	}
 	
 }

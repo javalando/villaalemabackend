@@ -14,15 +14,10 @@ import java.util.List;
 public class Mesa implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Id	
 	private int idmesa;
 
 	private String descricao;
-
-	//bi-directional many-to-one association to Comanda
-	@OneToMany(mappedBy="mesa", fetch = FetchType.LAZY)
-	private List<Comanda> comandas;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="idtipomesa",referencedColumnName="idtipomesa")
@@ -47,28 +42,7 @@ public class Mesa implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public List<Comanda> getComandas() {
-		return this.comandas;
-	}
-
-	public void setComandas(List<Comanda> comandas) {
-		this.comandas = comandas;
-	}
-
-	public Comanda addComanda(Comanda comanda) {
-		getComandas().add(comanda);
-		comanda.setMesa(this);
-
-		return comanda;
-	}
-
-	public Comanda removeComanda(Comanda comanda) {
-		getComandas().remove(comanda);
-		comanda.setMesa(null);
-
-		return comanda;
-	}
-
+	
 	public Tipomesa getTipomesa() {
 		return this.tipomesa;
 	}
